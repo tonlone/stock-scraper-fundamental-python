@@ -15,6 +15,7 @@ def get_stocks():
     stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
     home_dir = "C:\git-repo\GPT-Fund"
     output_data_dir = "C:\git-repo\GPT-Fund\data"
+    output_recommended_file = "recommended.txt"
     isQuarterly = True
     isSkipDownload = False
     isSkipParsing = False
@@ -43,7 +44,7 @@ def get_stocks():
 
     stock_str = ', '.join(stockList)
 
-    with open('recommended.txt', 'w') as f:
+    with open(output_recommended_file, 'w') as f:
 
         yield "List of Stocks being evaluated(" + str(len(stockList)) + "): " + stock_str + "<br/>"
         yield "isQuarterly: "  + str(isQuarterly) + "<br/><br/>"
