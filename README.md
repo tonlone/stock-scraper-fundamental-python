@@ -24,8 +24,8 @@ How to to run:
 -----------------
 1) Run it via a browser, run this python script findstockMainWeb.py and launch http://127.0.0.1:5555/stocks
 
-Output: will be shown in browser / recommended.txt
+Output: will be shown in browser / <home_dir>/recommended.txt
 
 2) Run it via command, run this python script findstockMain.py 
 
-Output: will be shown in console
+Output: will be shown in console only
