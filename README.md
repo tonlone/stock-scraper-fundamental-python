@@ -25,7 +25,7 @@ data_dir (default: "C:\git-repo\GPT-Fund\data")
 
 output_recommended_file (default: "recommended.txt")
 
-isQuarterly (Default: True. To retrieve data based on Quarterly report.  Otherwise, data is retrieved on Annunal report)
+isQuarterly (Default: True. To retrieve data based on Quarterly report.  Otherwise, data is retrieved on Annual report)
 
 isSkipDownload (Default: False. Always download data from source.  Otherwise, reuse data from data_dir)
 
