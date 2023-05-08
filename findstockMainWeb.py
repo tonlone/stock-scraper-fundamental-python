@@ -11,14 +11,14 @@ socketio = SocketIO(app, async_mode='threading')
 @app.route('/stocks')
 def get_stocks():
     #stockList = ["MA", "V", "GOOGL", "MSFT", "PG", "KO", "JNJ"]
-    #stockList = ['AAPL', 'AMZN', 'BAC', 'MSFT']
+    #stockList = ['AAPL', 'AMZN', 'MSFT']
     stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
     home_dir = "C:\git-repo\GPT-Fund"
     data_dir = "C:\git-repo\GPT-Fund\data"
     output_recommended_file = "recommended.txt"
     isQuarterly = True
-    isSkipDownload = False
-    isSkipParsing = False
+    isSkippedDownload = False
+    isSkippedParsing = False
 
     # change directory to "C:\git-repo\GPT-Fund"
     os.chdir(home_dir)
@@ -48,15 +48,23 @@ def get_stocks():
 
         yield "List of Stocks being evaluated(" + str(len(stockList)) + "): " + stock_str + "<br/>"
         yield "isQuarterly: "  + str(isQuarterly) + "<br/><br/>"
-        yield "isSkipDownload: "  + str(isSkipDownload) + "<br/><br/>"
-        yield "isSkipParsing: "  + str(isSkipParsing) + "<br/><br/>"
+        yield "isSkippedDownload: "  + str(isSkippedDownload) + "<br/><br/>"
+        yield "isSkippedParsing: "  + str(isSkippedParsing) + "<br/><br/>"
 
         f.write("List of Stocks being evaluated(" + str(len(stockList)) + "): " + stock_str + "\n")
         f.write("isQuarterly: "  + str(isQuarterly) + "\n\n")
-        f.write("isSkipDownload: "  + str(isSkipDownload) + "\n\n")
-        f.write("isSkipParsing: "  + str(isSkipParsing) + "\n\n")
+        f.write("isSkippedDownload: "  + str(isSkippedDownload) + "\n\n")
+        f.write("isSkippedParsing: "  + str(isSkippedParsing) + "\n\n")
 
-        if isSkipDownload != True:
+        yield "Loading...<br/>";
+        current_time = datetime.datetime.now()
+        new_time = current_time + datetime.timedelta(minutes=18)
+        yield "Expected completion time: " + new_time + "<br/>";
+
+        print("Current time:", current_time)
+        print("New time:", new_time)
+
+        if isSkippedDownload != True:
             process = subprocess.Popen(collect_data_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             for line in iter(process.stdout.readline, b''):
                 print(line.decode('utf-8') + "\n")
@@ -65,7 +73,7 @@ def get_stocks():
                 socketio.emit('update', {'data': update})
             process.wait()
 
-        if isSkipParsing != True:
+        if isSkippedParsing != True:
             process = subprocess.Popen(parse_data_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             for line in iter(process.stdout.readline, b''):
                 print(line.decode('utf-8') + "\n")
