@@ -14,7 +14,7 @@ def get_stocks():
     #stockList = ['AAPL', 'AMZN', 'BAC', 'MSFT']
     stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
     home_dir = "C:\git-repo\GPT-Fund"
-    output_data_dir = "C:\git-repo\GPT-Fund\data"
+    data_dir = "C:\git-repo\GPT-Fund\data"
     output_recommended_file = "recommended.txt"
     isQuarterly = True
     isSkipDownload = False
@@ -27,13 +27,13 @@ def get_stocks():
     collect_script_path = os.path.join(os.getcwd(), "collectData.py")
     collect_data_command = ["python", collect_script_path]
     collect_data_command.extend(stockList)
-    collect_data_command.extend(["--data_dir", output_data_dir])
+    collect_data_command.extend(["--data_dir", data_dir])
     collect_data_command.extend(["--isQuarterly", str(isQuarterly)])
 
     # Command to parse data 
     parse_script_path = os.path.join(os.getcwd(), "parseData.py")
     parse_data_command = ["python", parse_script_path]
-    parse_data_command.extend(["--data_dir", output_data_dir])
+    parse_data_command.extend(["--data_dir", data_dir])
     parse_data_command.extend(["--home_dir", home_dir])
 
     # analyze data 
