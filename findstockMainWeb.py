@@ -2,7 +2,7 @@ import subprocess
 import os
 from flask import Flask
 from flask_socketio import SocketIO, emit
-from datetime import datetime
+import datetime
 
 app = Flask(__name__)
 socketio = SocketIO(app, async_mode='threading')
@@ -11,8 +11,8 @@ socketio = SocketIO(app, async_mode='threading')
 @app.route('/stocks')
 def get_stocks():
     #stockList = ["MA", "V", "GOOGL", "MSFT", "PG", "KO", "JNJ"]
-    #stockList = ['AAPL', 'AMZN', 'MSFT']
-    stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
+    stockList = ['AAPL', 'AMZN', 'MSFT']
+    #stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
     home_dir = "C:\git-repo\GPT-Fund"
     data_dir = "C:\git-repo\GPT-Fund\data"
     output_recommended_file = "recommended.txt"
@@ -59,7 +59,7 @@ def get_stocks():
         yield "Loading...<br/>";
         current_time = datetime.datetime.now()
         new_time = current_time + datetime.timedelta(minutes=18)
-        yield "Expected completion time: " + new_time + "<br/>";
+        yield "Expected completion time: " + str(new_time) + "<br/>";
 
         print("Current time:", current_time)
         print("New time:", new_time)
