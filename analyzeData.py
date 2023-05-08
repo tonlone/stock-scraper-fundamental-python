@@ -17,12 +17,15 @@ def analyzeData(data_dir, isQuarterly=False):
     # Find recommended stocks
     recommended_stocks = []
     failed_stocks = []
+    liablity_exceed_equity_stocks = []
     positve_debt_ratio_stocks = []
     negative_income_growth_rate_stocks = []
     negative_revenue_growth_rate_stocks = []
     for stock in stocks:
-        if float(stock['Debt-to-Equity Ratio']) < 1 and float(stock['Net Income Growth Rate']) > 0 and float(stock['Revenue Growth Rate']) > 0:
+        if float(stock['Debt-to-Equity Ratio']) > 0 and float(stock['Debt-to-Equity Ratio']) < 1 and float(stock['Net Income Growth Rate']) > 0 and float(stock['Revenue Growth Rate']) > 0:
             recommended_stocks.append(stock)
+        elif float(stock['Debt-to-Equity Ratio']) < 0:
+            liablity_exceed_equity_stocks.append({stock['Stock']})    
         elif float(stock['Debt-to-Equity Ratio']) >= 1:
             positve_debt_ratio_stocks.append({stock['Stock']})
         elif float(stock['Net Income Growth Rate']) <= 0:
@@ -49,8 +52,14 @@ def analyzeData(data_dir, isQuarterly=False):
     else:
         print("No recommended stocks.")
 
-    if positve_debt_ratio_stocks or negative_income_growth_rate_stocks or negative_revenue_growth_rate_stocks or failed_stocks:
+    if liablity_exceed_equity_stocks or positve_debt_ratio_stocks or negative_income_growth_rate_stocks or negative_revenue_growth_rate_stocks or failed_stocks:
         print("Failed stocks:")
+
+    if liablity_exceed_equity_stocks:
+        print("Liability exceed equity (Debt-to-Equity Ratio < 0):")
+        liablity_exceed_equity_stocks_str = ', '.join([str(item) for item in liablity_exceed_equity_stocks])
+        print(liablity_exceed_equity_stocks_str.replace("{", "").replace("}", "").replace("'", ""))
+        print("")
 
     if positve_debt_ratio_stocks:
         print("Positive Debt-to-Equity Ratio (Debt-to-Equity Ratio > 1):")
