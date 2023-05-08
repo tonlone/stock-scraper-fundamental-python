@@ -6,7 +6,7 @@ import json
 def analyzeData(data_dir, isQuarterly=False):
 #def analyzeData(isQuarterly=False):    
 
-    data_dir = "C:\git-repo\GPT-Fund"  # directory name
+    #data_dir = "C:\git-repo\GPT-Fund"  # directory name
     full_file_path = os.path.join(data_dir, 'stock_data.csv')
 
     # Read in the CSV file
@@ -48,19 +48,6 @@ def analyzeData(data_dir, isQuarterly=False):
             print("")
     else:
         print("No recommended stocks.")
-
-    # Output failed stocks
-    # if failed_stocks:
-    #     print("Failed stocks:")
-    #     print("")
-    #     for stock in failed_stocks:
-    #         if float(stock['Debt-to-Equity Ratio']) >= 1:
-    #             print(f"Stock {stock['Stock']} failed because Debt-to-Equity Ratio is not less than 1.")
-    #         elif float(stock['Net Income Growth Rate']) <= 0:
-    #             print(f"Stock {stock['Stock']} failed because Net Income Growth Rate is not greater than 0.")
-    #         elif float(stock['Revenue Growth Rate']) <= 0:
-    #             print(f"Stock {stock['Stock']} failed because Revenue Growth Rate is not greater than 0.")
-    #         print("")
 
     if positve_debt_ratio_stocks or negative_income_growth_rate_stocks or negative_revenue_growth_rate_stocks or failed_stocks:
         print("Failed stocks:")
