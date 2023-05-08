@@ -59,7 +59,7 @@ def get_stocks():
         
         current_time = datetime.datetime.now()
         yield "Start time: " + str(current_time) + "<br/><br/>";
-        process_time = len(stockList) * 0.25;
+        process_time = len(stockList) * 0.4;
         yield "Processing time: " + str(process_time) + " minutes<br/><br/>";
         new_time = current_time + datetime.timedelta(minutes=process_time)
         yield "Expected completion time: " + str(new_time) + "<br/><br/>";

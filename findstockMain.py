@@ -23,7 +23,7 @@ print("isSkippedParsing: "  + str(isSkippedParsing) + "\n\n")
 
 current_time = datetime.datetime.now()
 print("Start time: " + str(current_time) + "\n");
-process_time = len(stockList) * 0.25;
+process_time = len(stockList) * 0.38;
 print("Processing time: " + str(process_time) + " minutes\n");
 new_time = current_time + datetime.timedelta(minutes=process_time)
 print("Expected completion time: " + str(new_time) + "\n");
