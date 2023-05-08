@@ -16,7 +16,7 @@ stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA'
 
 home_dir = "C:\git-repo\GPT-Fund"
 
-output_data_dir = "C:\git-repo\GPT-Fund\data"
+data_dir = "C:\git-repo\GPT-Fund\data"
 
 -----------------
 How to to run:
