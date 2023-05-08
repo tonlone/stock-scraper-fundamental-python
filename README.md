@@ -14,7 +14,7 @@ findstockMainWeb.py or findstockMain.py -> collectData.py -> parseData.py -> ana
 -----------------
 How to configure:
 -----------------
-Note: Adjust the following in your desired list and your local directory
+Note: Adjust the following fields as you needed
 Files: findstockMain.py or findstockMainWeb.py
 
 stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']  <== (default)
