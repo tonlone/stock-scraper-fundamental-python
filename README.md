@@ -6,6 +6,10 @@ https://stockanalysis.com/stocks/googl/financials/  => {symbol}-income.pdf
 
 https://stockanalysis.com/stocks/googl/financials/ratios/ => {symbol}-debt.pdf
 
+-----------------
+Workflow:
+-----------------
+findstockMainWeb.py or findstockMain.py -> collectData.py -> parseData.py -> analyzeData.py -> output [(Webpage / recommended.txt) or console ]
 
 -----------------
 How to configure:
