@@ -7,12 +7,18 @@ import PyPDF2
 #output_data_dir = "C:\git-repo\GPT-Fund\data"  # directory name
 options = {'page-size': 'A4','margin-top': '0mm','margin-right': '0mm','margin-bottom': '0mm','margin-left': '0mm', 'zoom': '0.80'}
 
-def cleanup(output_data_dir):
+def cleanup(output_data_dir, isAll=False):
     for filename in os.listdir(output_data_dir):
         if (filename.endswith("-income.pdf") or filename.endswith("-debt.pdf")):
             file_path = os.path.join(output_data_dir, filename)
             os.remove(file_path)
-    print("Cleanup working file ends with -income.pdf or -debt.pdf")
+        if (isAll and filename.endswith("-total.pdf")):
+            file_path = os.path.join(output_data_dir, filename)
+            os.remove(file_path)
+    if isAll:
+        print("Cleanup all working files *.pdf")
+    else:
+        print("Cleanup working file ends with -income.pdf or -debt.pdf")
     print("")
 
 def combineFile(output_data_dir, income_full_file_path, debt_full_file_path, stock):
@@ -91,6 +97,7 @@ def main():
     if not output_data_dir:
         output_data_dir = os.getcwd()
 
+    cleanup(output_data_dir, True)
     for stock in stockList:
         downloadPDF(stock, output_data_dir, isQuarterly)
     cleanup(output_data_dir)
