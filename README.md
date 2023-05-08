@@ -23,6 +23,14 @@ home_dir = "C:\git-repo\GPT-Fund"       <== (default)
 
 data_dir = "C:\git-repo\GPT-Fund\data"  <== (default)
 
+output_recommended_file = "recommended.txt" <== (default)
+
+isQuarterly = True (Default: True. To retrieve data based on Quarterly report.  Otherwise, data is retrieved on Annunal report)
+
+isSkipDownload = False  (Default: False. Always download data from source.  Otherwise, reuse data from data_dir)
+
+isSkipParsing = False   (Default: False. Always parse data in data_dir.  Otherwise, perform analyze directly from data_dir)
+
 -----------------
 How to to run:
 -----------------
