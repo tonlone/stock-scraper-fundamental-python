@@ -10,8 +10,8 @@ socketio = SocketIO(app, async_mode='threading')
 
 @app.route('/stocks')
 def get_stocks():
-    #stockList = ["MA", "V", "GOOGL", "MSFT", "PG", "KO", "JNJ"]
-    stockList = ['AAPL', 'AMZN', 'MSFT']
+    stockList = ["MA", "V", "GOOGL", "MSFT", "PG", "KO", "JNJ"]
+    #stockList = ['AAPL', 'AMZN', 'MSFT']
     #stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
     home_dir = "C:\git-repo\GPT-Fund"
     data_dir = "C:\git-repo\GPT-Fund\data"
@@ -56,13 +56,14 @@ def get_stocks():
         f.write("isSkippedDownload: "  + str(isSkippedDownload) + "\n\n")
         f.write("isSkippedParsing: "  + str(isSkippedParsing) + "\n\n")
 
-        yield "Loading...<br/>";
+        
         current_time = datetime.datetime.now()
-        new_time = current_time + datetime.timedelta(minutes=18)
-        yield "Expected completion time: " + str(new_time) + "<br/>";
-
-        print("Current time:", current_time)
-        print("New time:", new_time)
+        yield "Start time: " + str(current_time) + "<br/><br/>";
+        process_time = len(stockList) * 0.25;
+        yield "Processing time: " + str(process_time) + " minutes<br/><br/>";
+        new_time = current_time + datetime.timedelta(minutes=process_time)
+        yield "Expected completion time: " + str(new_time) + "<br/><br/>";
+        yield "Loading...<br/><br/>";
 
         if isSkippedDownload != True:
             process = subprocess.Popen(collect_data_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -89,7 +90,7 @@ def get_stocks():
         process.wait()
 
         
-        currentDateTime = datetime.now();
+        currentDateTime = datetime.datetime.now()
         yield "<br/>";
         yield "Updated time: " + str(currentDateTime) ;
         f.write("\n")
