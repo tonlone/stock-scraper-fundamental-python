@@ -44,11 +44,11 @@ for ticker in ticker_symbols:
 
     # Determine the recommendation
 
-    # current stock close price is higher than the 200-day moving average, the RSI is greater than 70, the A/D line is increasing, and the ADX is greater than 25, the recommendation is to buy the stock
+    # If current stock close price is higher than the 200-day moving average, the RSI is greater than 70, the A/D line is increasing, and the ADX is greater than 25, the recommendation is to buy the stock
     if data['Close'].iloc[-1] > data['MA'].iloc[-1] and rsi.iloc[-1] > 70 and data['AD'].iloc[-1] > data['AD'].iloc[
         -2] and data['ADX'].iloc[-1] > 25:
         recommendation = 'Buy'
-    #  If the current stock close price is lower than the 200-day moving average, the RSI is less than 30, the A/D line is decreasing, and the ADX is greater than 25, the recommendation is to sell the stock
+    #  else If the current stock close price is lower than the 200-day moving average, the RSI is less than 30, the A/D line is decreasing, and the ADX is greater than 25, the recommendation is to sell the stock
     elif data['Close'].iloc[-1] < data['MA'].iloc[-1] and rsi.iloc[-1] < 30 and data['AD'].iloc[-1] < data['AD'].iloc[
         -2] and data['ADX'].iloc[-1] > 25:
         recommendation = 'Sell'
@@ -66,6 +66,20 @@ for ticker in ticker_symbols:
            'Date': data.index[-1].strftime('%Y-%m-%d'),
            'Recommendation': recommendation}
     results = pd.concat([results, pd.DataFrame(new_row, index=[0])], ignore_index=True)
+
+recommended_buy = "If current stock close price is higher than the 200-day moving average, the RSI is greater than 70, the A/D line is increasing, and the ADX is greater than 25, the recommendation is to buy the stock"
+
+recommended_sell = "else If the current stock close price is lower than the 200-day moving average, the RSI is less than 30, the A/D line is decreasing, and the ADX is greater than 25, the recommendation is to sell the stock"
+
+recommended_hold = "Otherwise hold"
+
+print(recommended_buy)
+print("")
+print(recommended_sell)
+print("")
+print(recommended_hold)
+print("")
+
 
 # Print the results
 print(results)
