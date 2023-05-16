@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the ticker symbols of the stocks you want to analyze
-ticker_symbols = ['BTC-USD']
+ticker_symbols = ['XRP-USD']
 #ticker_symbols = ['COST', 'MSFT', 'PYPL', 'PG', 'UNH', 'V', 'WMT', 'DIS' ]
 #ticker_symbols = ['BTC-USD', 'ETH-USD', 'DOGE-USD', 'USDT-USD', 'ADA-USD', 'BNB-USD', 'XRP-USD']
 #ticker_symbols  = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
@@ -57,6 +57,7 @@ for ticker in ticker_symbols:
     plt.plot(rolling_mean, label='Rolling Mean', color='red')
     plt.plot(upper_band, label='Upper Band', color='green')
     plt.plot(lower_band, label='Lower Band', color='yellow')
+    plt.fill_between(data.index, lower_band, upper_band, alpha=0.3)
     if buy_signal is not None:
         plt.axvline(x=buy_signal, color='blue', linestyle='--', label='Buy Signal')
     if sell_signal is not None:
