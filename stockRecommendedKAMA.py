@@ -4,9 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the ticker symbols of the stocks you want to analyze
-ticker_symbols = ['COST']
+ticker_symbols = ['BTC-USD']
 #ticker_symbols = ['COST', 'MSFT', 'PYPL', 'PG', 'UNH', 'V', 'WMT', 'DIS' ]
-start_date = '2023-02-01'
+#ticker_symbols = ['BTC-USD', 'ETH-USD', 'DOGE-USD', 'USDT-USD', 'ADA-USD', 'BNB-USD', 'XRP-USD']
+start_date = '2023-01-01'
 
 print("KAMA (Long term)")
 print("============",)
@@ -71,7 +72,7 @@ for ticker in ticker_symbols:
     for i, buy_signal in enumerate(buy_signals):
         if buy_signal:
             buy_date = data.index[i].strftime('%m-%d')
-            print(f'Buy({buy_date})')
+            print(f'Buy({buy_date}) @ Price = {data["Adj Close"][i]}')
             plt.annotate(f'Buy({buy_date})', xy=(data.index[i], data['Adj Close'][i]), xytext=(10, 30),
                          textcoords='offset points', color='green', arrowprops=dict(arrowstyle='->', lw=1))
     
@@ -79,7 +80,7 @@ for ticker in ticker_symbols:
     for i, sell_signal in enumerate(sell_signals):
         if sell_signal:
             sell_date = data.index[i].strftime('%m-%d')
-            print(f'Sell({sell_date})')
+            print(f'Sell({sell_date}) @ Price = {data["Adj Close"][i]}')
             plt.annotate(f'Sell({sell_date})', xy=(data.index[i], data['Adj Close'][i]), xytext=(10, -30),
                          textcoords='offset points', color='red', arrowprops=dict(arrowstyle='->', lw=1))
     print("============",)

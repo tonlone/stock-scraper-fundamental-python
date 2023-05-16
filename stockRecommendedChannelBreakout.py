@@ -4,8 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the ticker symbols of the stocks you want to analyze
-ticker_symbols = ['COST']
+ticker_symbols = ['BTC-USD']
 #ticker_symbols = ['COST', 'MSFT', 'PYPL', 'PG', 'UNH', 'V', 'WMT', 'DIS' ]
+#ticker_symbols = ['BTC-USD', 'ETH-USD', 'DOGE-USD', 'USDT-USD', 'ADA-USD', 'BNB-USD', 'XRP-USD']
 #ticker_symbols  = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']
 start_date = '2023-02-01'
 
@@ -28,13 +29,15 @@ def channel_breakout(data, ticker, window=20, n_std=2):
             sell_signal = data.index[i]
             date = str(sell_signal).split()[0].split("-")[1:]
             formatted_date = "-".join(date)
-            print("sell_signal",formatted_date)
+            price = data.iloc[i]['Close']
+            print("sell_signal", formatted_date, " @ Price = ",price)
         # ElseIf  If the closing price is below the lower band, it sets the buy_signal to the current index 
         elif data.iloc[i]['Close'] < lower_band[i]:
             buy_signal = data.index[i]
             date = str(buy_signal).split()[0].split("-")[1:]
             formatted_date = "-".join(date)
-            print("buy_signal",formatted_date)
+            price = data.iloc[i]['Close']
+            print("buy_signal", formatted_date, " @ Price = ",price)
         else:
             #hold_signal=i
             hold_signal = data.index[i]

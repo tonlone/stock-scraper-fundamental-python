@@ -4,8 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define the ticker symbols of the stocks you want to analyze
-ticker_symbols = ['COST']
+ticker_symbols = ['BTC-USD']
 #ticker_symbols = ['COST', 'MSFT', 'PYPL', 'PG', 'UNH', 'V', 'WMT', 'DIS' ]
+#ticker_symbols = ['BTC-USD', 'ETH-USD', 'DOGE-USD', 'USDT-USD', 'ADA-USD', 'BNB-USD', 'XRP-USD']
+
 start_date = '2023-02-01'
 
 print("MACD (Short term)")
@@ -47,12 +49,12 @@ for ticker in ticker_symbols:
         index = intersection_points[i] + 1
         if macd.iloc[index] > signal.iloc[index]:
             label = 'Buy({})'.format(intersection_dates[i].strftime('%m-%d'))
-            print(label)
+            print(label + " @ Price = {}".format(data['Close'].loc[intersection_dates[i]]))
             plt.annotate(label, (intersection_dates[i], intersection_values[i]), xytext=(5, 5),
                          textcoords='offset points', color='green')
         else:
             label = 'Sell({})'.format(intersection_dates[i].strftime('%m-%d'))
-            print(label)
+            print(label + "@ Price = {}".format(data['Close'].loc[intersection_dates[i]]))
             plt.annotate(label, (intersection_dates[i], intersection_values[i]), xytext=(5, 5),
                          textcoords='offset points', color='red')
     print("============",)
