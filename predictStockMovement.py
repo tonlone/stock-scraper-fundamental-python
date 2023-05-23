@@ -407,7 +407,9 @@ def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=Fa
     cum_ret_df['CUM_RET'] = (cum_ret_df.CUM_RET / 1000000 - 1) * 100
     cum_ret_df['BUY_HOLD'] = (bt_df.Close / bt_df.Open.iloc[0] - 1) * 100
     cum_ret_df['ZERO'] = 0
-    title = "Cumulative Returns on [" + ticker +"] - Strategy(" + strategy_name +"), stop_loss_enabled = " + str(stop_loss_enabled)
+    partial_title = "[" + ticker +"] - Strategy(" + strategy_name +"), Stop Loss Enabled = " + str(stop_loss_enabled)
+    ticker_and_strategy = "[" + ticker +  "] - Strategy(" + strategy_name + ")"
+    title = "Cumulative Returns on " + partial_title
     cum_ret_df.plot(title=title, figsize=(15, 5))
     cum_ret_df.iloc[[-1]].round(2)
     plt.xlabel('Trade Date')
@@ -425,19 +427,18 @@ def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=Fa
     }
 
     trade_df = pd.DataFrame(tarde_dict)
-    print("***** Trade Result [" + ticker +  "] - Strategy(" + strategy_name + "), stop_loss_enabled = " + str(stop_loss_enabled) +  " *****")
-    print(trade_df.tail())
+    print()
+    print("***** Trade Result " + partial_title +  " *****")
+    #print(trade_df.tail())
+    print(trade_df)
 
     # Trade Summary
     num_trades = trade_df.groupby('SIDE').count()[['START']]
     num_trades_win = trade_df[trade_df.PNL > 0].groupby('SIDE').count()[['START']]
-
     avg_days = trade_df.groupby('SIDE').mean(numeric_only=True)[['DAYS']]
-
     avg_ret = trade_df.groupby('SIDE').mean(numeric_only=True)[['RET']]
     avg_ret_win = trade_df[trade_df.PNL > 0].groupby('SIDE').mean(numeric_only=True)[['RET']]
     avg_ret_loss = trade_df[trade_df.PNL < 0].groupby('SIDE').mean(numeric_only=True)[['RET']]
-
     std_ret = trade_df.groupby('SIDE').std(numeric_only=True)[['RET']]
 
     detail_df = pd.concat([
@@ -449,18 +450,18 @@ def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=Fa
                         'NUM_TRADES', 'NUM_TRADES_WIN', 'AVG_DAYS', 
                         'AVG_RET', 'AVG_RET_WIN', 'AVG_RET_LOSS', 'STD_RET'
                         ]
-    print("***** Trade Summary [" + ticker +  "] - Strategy(" + strategy_name + ") *****")
+    print()
+    print("***** Trade Summary " + ticker_and_strategy + " *****")
     print(detail_df.round(2))
 
     # max drawdown
     mv_df = pd.DataFrame(cum_value, index=bt_df.index, columns=['MV'])
-
     days = len(mv_df)
-
     roll_max = mv_df.MV.rolling(window=days, min_periods=1).max()
     drawdown_val = mv_df.MV - roll_max
     drawdown_pct = (mv_df.MV / roll_max - 1) * 100
-    print("***** Drawdown [" + ticker +  "] - Strategy(" + strategy_name + ") *****")
+    print()
+    print("***** Drawdown " + ticker_and_strategy + " *****")
     print("Max Drawdown value:", round(drawdown_val.min(), 0))
     print("MAx Drawdown Percentage %:", round(drawdown_pct.min(), 2))
 
