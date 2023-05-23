@@ -4,7 +4,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 
-ticker = 'PG'
+ticker = 'MSFT'
 stoploss = False
 strategy_name = "MACD"
 #strategy_name = "BollingerBands"
@@ -17,7 +17,7 @@ strategy_name = "MACD"
 #strategy_name = "IchmokuCloud"
 
 # Define the ticker symbols of the stocks you want to analyze
-#ticker_symbols = ['COST', 'MSFT', 'PYPL', 'PG', 'UNH', 'V', 'WMT', 'NFLX', 'NVDA' ]
+#ticker_symbols = [*'COST', 'MSFT', *'PYPL', *'PG', 'UNH', 'V', *'WMT', 'NFLX', 'NVDA' ]
 #ticker_symbols = ['BTC-USD', 'ETH-USD', 'DOGE-USD', 'USDT-USD', 'ADA-USD', 'BNB-USD', 'XRP-USD']
 #start_date = '2022-05-01'
 start_date = '2022-10-01'
@@ -50,8 +50,8 @@ def strategy_KeltnerChannel_origin(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Keltner Channel *****")
-  print(data)
+  #print("***** Keltner Channel *****")
+  #print(data)
   return data, "Keltner Channel"
 
 def strategy_BollingerBands(df, **kwargs):
@@ -78,8 +78,8 @@ def strategy_BollingerBands(df, **kwargs):
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
 
-  print("***** Bollinger Bands *****")
-  print(data)
+  #print("***** Bollinger Bands *****")
+  #print(data)
   return data, "BollingerBands"
 
 def strategy_MA(df, **kwargs):
@@ -108,9 +108,8 @@ def strategy_MA(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Strategy moving average (MA) *****")
-  print(data)
-  print(data)
+  #print("***** Strategy moving average (MA) *****")
+  #print(data)
   return data, "Moving average"
 
 def strategy_MACD(df, **kwargs):
@@ -135,8 +134,8 @@ def strategy_MACD(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Strategy Moving Average Convergence Divergence (MACD) *****")
-  print(data)
+  #print("***** Strategy Moving Average Convergence Divergence (MACD) *****")
+  #print(data)
   return data, "Moving average MACD"
 
 def strategy_RSI(df, **kwargs):
@@ -159,8 +158,8 @@ def strategy_RSI(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Strategy Relative Strength Index (RSI) *****")
-  print(data)
+  #print("***** Strategy Relative Strength Index (RSI) *****")
+  #print(data)
   return data, "Relative Strength Index RSI"
 
 def strategy_WR(df, **kwargs):
@@ -183,8 +182,8 @@ def strategy_WR(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Strategy Williams %R (WR) *****")
-  print(data)
+  #print("***** Strategy Williams %R (WR) *****")
+  #print(data)
   return data, "Williams %R WR"
 
 def strategy_Stochastic_fast(df, **kwargs):
@@ -211,8 +210,8 @@ def strategy_Stochastic_fast(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Stochastic Oscillator Fast *****")
-  print(data)
+  #print("***** Stochastic Oscillator Fast *****")
+  #print(data)
   return data, "Stochastic Oscillator Fast"
 
 def strategy_Stochastic_slow(df, **kwargs):
@@ -244,8 +243,8 @@ def strategy_Stochastic_slow(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Stochastic Oscillator Slow *****")
-  print(data)
+  #print("***** Stochastic Oscillator Slow *****")
+  #print(data)
   return data, "Stochastic Oscillator Slow"
 
 def strategy_Ichmoku(df, **kwargs):
@@ -274,8 +273,8 @@ def strategy_Ichmoku(df, **kwargs):
   data.SHORT = data.SHORT.shift(1)
   data.EXIT_SHORT = data.EXIT_SHORT.shift(1)
 
-  print("***** Ichimoku Cloud indicator *****")
-  print(data)
+  #print("***** Ichimoku Cloud indicator *****")
+  #print(data)
   return data, "Ichimoku Cloud indicator"
 
 def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=False):
@@ -426,7 +425,7 @@ def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=Fa
     }
 
     trade_df = pd.DataFrame(tarde_dict)
-    print("***** Trade Result *****")
+    print("***** Trade Result [" + ticker +  "] - Strategy(" + strategy_name + "), stop_loss_enabled = " + str(stop_loss_enabled) +  " *****")
     print(trade_df.tail())
 
     # Trade Summary
@@ -450,7 +449,7 @@ def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=Fa
                         'NUM_TRADES', 'NUM_TRADES_WIN', 'AVG_DAYS', 
                         'AVG_RET', 'AVG_RET_WIN', 'AVG_RET_LOSS', 'STD_RET'
                         ]
-    print("***** Trade Summary *****")
+    print("***** Trade Summary [" + ticker +  "] - Strategy(" + strategy_name + ") *****")
     print(detail_df.round(2))
 
     # max drawdown
@@ -461,7 +460,7 @@ def evaluate_trading_strategy(ticker, bt_df, strategy_name, stop_loss_enabled=Fa
     roll_max = mv_df.MV.rolling(window=days, min_periods=1).max()
     drawdown_val = mv_df.MV - roll_max
     drawdown_pct = (mv_df.MV / roll_max - 1) * 100
-    print("***** Drawdown *****")
+    print("***** Drawdown [" + ticker +  "] - Strategy(" + strategy_name + ") *****")
     print("Max Drawdown value:", round(drawdown_val.min(), 0))
     print("MAx Drawdown Percentage %:", round(drawdown_pct.min(), 2))
 
