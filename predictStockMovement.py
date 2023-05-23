@@ -3,18 +3,20 @@ import ta as ta
 import pandas as pd
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
+import sys
 
-ticker = 'MSFT'
+ticker = 'WMT'
 stoploss = False
-strategy_name = "MACD"
+strategy_name = "RSIFast"
 #strategy_name = "BollingerBands"
 #strategy_name = "MA"
-#strategy_name = "MACD"
+#strategy_name = "MACD" *
 #strategy_name = "RSI"
 #strategy_name = "WR"
 #strategy_name = "RSIFast"
 #strategy_name = "RSISlow"
 #strategy_name = "IchmokuCloud"
+valid_strategy_name_list = ["BollingerBands", "MA", "MACD", "RSI", "WR", "RSIFast", "RSISlow", "IchmokuCloud"]
 
 # Define the ticker symbols of the stocks you want to analyze
 #ticker_symbols = [*'COST', 'MSFT', *'PYPL', *'PG', 'UNH', 'V', *'WMT', 'NFLX', 'NVDA' ]
@@ -474,6 +476,10 @@ def prepare_stock_ta_backtest_data(df, start_date, end_date, strategy, **strateg
   return bt_df, strategy_name
 
 df = yf.download(ticker, start=start_date, end=end_date)
+
+if strategy_name not in valid_strategy_name_list:
+    raise ValueError("Invalid Strategy name:", strategy_name)
+    sys.exit()
 
 if strategy_name == "BollingerBands":
     bt_df, strategy_name = prepare_stock_ta_backtest_data(
