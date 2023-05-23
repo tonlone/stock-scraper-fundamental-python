@@ -5,9 +5,11 @@ from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 import sys
 
-ticker = 'WMT'
+ticker = 'COST'
 stoploss = False
-strategy_name = "RSIFast"
+strategy_name = "MACD"
+
+#strategy_name = "KeltnerChannel"
 #strategy_name = "BollingerBands"
 #strategy_name = "MA"
 #strategy_name = "MACD" *
@@ -16,7 +18,7 @@ strategy_name = "RSIFast"
 #strategy_name = "RSIFast"
 #strategy_name = "RSISlow"
 #strategy_name = "IchmokuCloud"
-valid_strategy_name_list = ["BollingerBands", "MA", "MACD", "RSI", "WR", "RSIFast", "RSISlow", "IchmokuCloud"]
+valid_strategy_name_list = ["KeltnerChannel", "BollingerBands", "MA", "MACD", "WR", "RSI", "RSIFast", "RSISlow", "IchmokuCloud"]
 
 # Define the ticker symbols of the stocks you want to analyze
 #ticker_symbols = [*'COST', 'MSFT', *'PYPL', *'PG', 'UNH', 'V', *'WMT', 'NFLX', 'NVDA' ]
