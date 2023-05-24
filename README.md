@@ -9,6 +9,15 @@ https://stockanalysis.com/stocks/googl/financials/ratios/ => {symbol}-debt.pdf
 The script will merge both pdf files into a single one for analysis => {symbol}-total.pdf
 
 -----------------
+Related scripts:
+-----------------
+findstockMainWeb.py
+findstockMain.py
+collectData.py
+parseData.py
+analyzeData.py
+
+-----------------
 Workflow:
 -----------------
 1. Run it via a browser
@@ -98,3 +107,15 @@ Execute the script below
 
 python predictStockMovement.py
 
+
+# 3) other individual scripts
+
+stockRecommendedChannelBreakout.py  - recommend when to buy and sell instrument based on strategy Channel Breakout
+
+stockRecommendedMACD.py - recommend when to buy and sell instrument based on strategy MACD
+
+stockRecommendedRSI.py - recommend when to buy and sell instrument based on strategy RSI
+
+stockRecommendedKAMA.py - recommend when to buy and sell instrument based on strategy KAMA
+
+stockRecommended.py   - recommend which stocks to buy, sell and hold (still work in progress)
