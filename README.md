@@ -6,10 +6,20 @@ https://stockanalysis.com/stocks/googl/financials/  => {symbol}-income.pdf
 
 https://stockanalysis.com/stocks/googl/financials/ratios/ => {symbol}-debt.pdf
 
+The script will merge both pdf files into a single one for analysis => {symbol}-total.pdf
+
 -----------------
 Workflow:
 -----------------
-findstockMainWeb.py or findstockMain.py -> collectData.py -> parseData.py -> analyzeData.py -> output [(Webpage / recommended.txt) or console ]
+1. Run it via a browser
+
+findstockMainWeb.py -> collectData.py -> parseData.py -> analyzeData.py -> output [(Webpage / recommended.txt)]  
+
+OR
+
+2. Run it via console
+
+findstockMain.py -> collectData.py -> parseData.py -> analyzeData.py -> output [(recommended.txt) or console ]
 
 -----------------
 How to configure:
@@ -43,6 +53,21 @@ Output: will be shown in browser / <home_dir>/recommended.txt
 Output: will be shown in console only
 
 Note:Total Runtime: About 18 minutes for 49 symbols above
+
+-------------------
+Known Issue / bugs:
+-------------------
+
+1.  After the all the PDF files are downloaed, the script may not continue to process the PDF files.
+    
+    Workaround: 
+     
+     i) You may stop the program, e.g. findstockMain.py or findstockMainWeb.py
+    
+     ii) Update the flag isSkipDownload = True in the scripts
+     
+     iii) Re-run the script again
+    
 
 
 # 2) predict-stock-movement-python
