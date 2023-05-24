@@ -12,9 +12,13 @@ The script will merge both pdf files into a single one for analysis => {symbol}-
 Related scripts:
 -----------------
 findstockMainWeb.py
+
 findstockMain.py
+
 collectData.py
+
 parseData.py
+
 analyzeData.py
 
 -----------------
@@ -33,7 +37,9 @@ findstockMain.py -> collectData.py -> parseData.py -> analyzeData.py -> output [
 -----------------
 How to configure:
 -----------------
+
 Note: Adjust the following fields as you needed
+
 Files: findstockMain.py or findstockMainWeb.py
 
 stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']  <== (default)
@@ -53,6 +59,7 @@ isSkipParsing (Default: False. Always parse data in data_dir.  Otherwise, perfor
 -----------------
 How to to run:
 -----------------
+
 1) Run it via a browser, run this python script findstockMainWeb.py and launch http://127.0.0.1:5555/stocks
 
 Output: will be shown in browser / <home_dir>/recommended.txt
@@ -80,7 +87,9 @@ Known Issue / bugs:
 
 
 # 2) predict-stock-movement-python
+
 This python scipts to gather historical data and using different model to predict their price movement. We are using this page as reference.
+
 https://medium.com/@mrconnor/technical-analysis-to-predict-stock-movement-95650daa5c4f
 
 Available models: Keltner Channel, Bollinger Bands, MACD, William R%, RSI, RSI Fast, RSI Slow, IchmokuCloud
@@ -103,6 +112,7 @@ end_date = '2023-05-23'
 -----------------
 Workflow:
 -----------------
+
 Execute the script below
 
 python predictStockMovement.py
