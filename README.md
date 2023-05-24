@@ -40,21 +40,21 @@ How to configure:
 
 Note: Adjust the following fields as you needed
 
-Files: findstockMain.py or findstockMainWeb.py
+Files: **findstockMain.py** or **findstockMainWeb.py**
 
-stockList = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']  <== (default)
+**stockList** = ['AAPL', 'ABT', 'ABBV', 'ACN', 'ADBE', 'AMZN', 'BAC', 'BMY', 'CMCSA', 'COST', 'CSCO', 'CRM', 'CVX', 'DHR', 'DIS', 'FB', 'GOOGL', 'HD', 'HON', 'INTC', 'JNJ', 'JPM', 'KO', 'LIN', 'LLY', 'MA', 'MCD', 'MMM', 'MRK', 'MSFT', 'NEE', 'NFLX', 'NVDA', 'NKE', 'ORCL', 'PFE', 'PEP', 'PG', 'PM', 'PYPL', 'T', 'TMO', 'TSLA', 'UNH', 'UNP', 'V', 'VZ', 'WMT', 'XOM']  <== (default)
 
-home_dir (default: "C:\git-repo\GPT-Fund")
+**home_dir** (default: "C:\git-repo\GPT-Fund")
 
-data_dir (default: "C:\git-repo\GPT-Fund\data")
+**data_dir** (default: "C:\git-repo\GPT-Fund\data")
 
-output_recommended_file (default: "recommended.txt")
+**output_recommended_file** (default: "recommended.txt")
 
-isQuarterly (Default: True. To retrieve data based on Quarterly report.  Otherwise, data is retrieved on Annual report)
+**isQuarterly** (Default: True. To retrieve data based on Quarterly report.  Otherwise, data is retrieved on Annual report)
 
-isSkipDownload (Default: False. Always download data from source.  Otherwise, reuse data from data_dir)
+**isSkipDownload** (Default: False. Always download data from source.  Otherwise, reuse data from data_dir)
 
-isSkipParsing (Default: False. Always parse data in data_dir.  Otherwise, perform analyze directly from data_dir)
+**isSkipParsing** (Default: False. Always parse data in data_dir.  Otherwise, perform analyze directly from data_dir)
 
 -----------------
 How to to run:
