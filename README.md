@@ -69,5 +69,6 @@ end_date = '2023-05-23'
 -----------------
 Workflow:
 -----------------
-predictStockMovement.py
+Execute the script below
+python predictStockMovement.py
 
