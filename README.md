@@ -45,7 +45,7 @@ Output: will be shown in console only
 Note:Total Runtime: About 18 minutes for 49 symbols above
 
 
-# 2) predict-Stock-Movement-python
+# 2) predict-stock-movement-python
 This python scipts to gather historical data and using different model to predict their price movement. We are using this page as reference.
 https://medium.com/@mrconnor/technical-analysis-to-predict-stock-movement-95650daa5c4f
 
