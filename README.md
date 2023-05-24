@@ -52,12 +52,17 @@ https://medium.com/@mrconnor/technical-analysis-to-predict-stock-movement-95650d
 Available models: Keltner Channel, Bollinger Bands, MACD, William R%, RSI, RSI Fast, RSI Slow, IchmokuCloud
 
 You may use the model against Stocks, Cryptocurrency, FX Currency to see if it fits
+
 -----------------
 How to configure
 -----------------
 ticker = 'MSFT'
+
 stoploss = False        (There is a stop loss feature and you may try it out)
+
 strategy_name = "RSI"
+
 start_date = '2022-10-01'
+
 end_date = '2023-05-23'
 
