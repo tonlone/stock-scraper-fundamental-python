@@ -1,4 +1,4 @@
-# stock-scraper-fundamental-python
+# 1) stock-scraper-fundamental-python
 This python scipts to export data from stockanalysis.com into a PDF file. Perform parsing to extract Revenue Growth YoY, Net Income Growth and Debt / Equity Ratio
 to determine of the symbol is recommended to consider. This is the based on ChatGPT recommendation (we called it naive ChatGPT recommendation).
 
@@ -43,3 +43,21 @@ Output: will be shown in browser / <home_dir>/recommended.txt
 Output: will be shown in console only
 
 Note:Total Runtime: About 18 minutes for 49 symbols above
+
+
+# 2) predict-Stock-Movement-python
+This python scipts to gather historical data and using different model to predict their price movement. We are using this page as reference.
+https://medium.com/@mrconnor/technical-analysis-to-predict-stock-movement-95650daa5c4f
+
+Available models: Keltner Channel, Bollinger Bands, MACD, William R%, RSI, RSI Fast, RSI Slow, IchmokuCloud
+
+You may use the model against Stocks, Cryptocurrency, FX Currency to see if it fits
+-----------------
+How to configure
+-----------------
+ticker = 'MSFT'
+stoploss = False        (There is a stop loss feature and you may try it out)
+strategy_name = "RSI"
+start_date = '2022-10-01'
+end_date = '2023-05-23'
+
