@@ -128,4 +128,6 @@ stockRecommendedRSI.py - recommend when to buy and sell instrument based on stra
 
 stockRecommendedKAMA.py - recommend when to buy and sell instrument based on strategy KAMA
 
+stockAnalysisML_DeepLearningDQN - recommend when to buy and sell instrument based on Deep Q-Network Training
+
 stockRecommended.py   - recommend which stocks to buy, sell and hold (still work in progress)
