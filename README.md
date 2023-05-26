@@ -131,6 +131,7 @@ You may use the model against Stocks, Cryptocurrency, FX Currency to see if it f
 How to configure
 -----------------
 ticker = 'MSFT'
+
 start_date = '2022-10-01'
 
 
