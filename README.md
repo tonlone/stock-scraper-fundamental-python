@@ -1,3 +1,5 @@
+This is for educational purpose only.  Please do not use it or rely on it for investment decision.
+
 # 1) stock-scraper-fundamental-python
 This python scipts to export data from stockanalysis.com into a PDF file. Perform parsing to extract Revenue Growth YoY, Net Income Growth and Debt / Equity Ratio
 to determine of the symbol is recommended to consider. This is the based on ChatGPT recommendation (we called it naive ChatGPT recommendation).
@@ -117,8 +119,32 @@ Execute the script below
 
 python predictStockMovement.py
 
+# 3) buy-sell-signal-TraderXO-indicator-MACD-python
 
-# 3) other individual scripts
+This python scipts to gather historical data and using Trader XO indicator and MACD to trigger buy / sell signal. We are using this youtube as reference.
+
+https://www.youtube.com/watch?v=UC4YdCQKaQk&list=PLTQl_quUZDZwATLnpyFLBWqErXUnr3CrT
+
+You may use the model against Stocks, Cryptocurrency, FX Currency to see if it fits
+
+-----------------
+How to configure
+-----------------
+ticker = 'MSFT'
+start_date = '2022-10-01'
+
+
+
+-----------------
+Workflow:
+-----------------
+
+Execute the script below
+
+python buySellSignal_TraderXOIndicator_MACD.py
+
+
+# 4) other individual scripts
 
 stockRecommendedChannelBreakout.py  - recommend when to buy and sell instrument based on strategy Channel Breakout
 
