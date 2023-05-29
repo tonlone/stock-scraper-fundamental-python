@@ -7,7 +7,7 @@ import sys
 
 ticker = 'COST'
 stoploss = False
-strategy_name = "MACD"
+strategy_name = "IchmokuCloud"
 
 #strategy_name = "KeltnerChannel"
 #strategy_name = "BollingerBands"
@@ -25,7 +25,7 @@ valid_strategy_name_list = ["KeltnerChannel", "BollingerBands", "MA", "MACD", "W
 #ticker_symbols = ['BTC-USD', 'ETH-USD', 'DOGE-USD', 'USDT-USD', 'ADA-USD', 'BNB-USD', 'XRP-USD']
 #start_date = '2022-05-01'
 start_date = '2022-10-01'
-end_date = '2023-05-23'
+end_date = '2023-05-29'
 date_fmt = '%Y-%m-%d'
 
 start_date_buffer = datetime.strptime(start_date, date_fmt) - timedelta(days=365)
@@ -517,7 +517,7 @@ elif strategy_name == "RSISlow":
     )
 elif strategy_name == "IchmokuCloud":
     bt_df, strategy_name = prepare_stock_ta_backtest_data(
-        df, start_date, end_date, strategy_Stochastic_slow, n=10
+        df, start_date, end_date, strategy_Ichmoku, n=10
     )    
 
 evaluate_trading_strategy(ticker, bt_df, strategy_name, stoploss)
