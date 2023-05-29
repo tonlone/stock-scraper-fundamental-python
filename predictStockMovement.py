@@ -7,7 +7,7 @@ import sys
 
 ticker = 'COST'
 stoploss = False
-strategy_name = "IchmokuCloud"
+strategy_name = "MACD"
 
 #strategy_name = "KeltnerChannel"
 #strategy_name = "BollingerBands"
