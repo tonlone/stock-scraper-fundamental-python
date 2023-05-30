@@ -88,7 +88,8 @@ Known Issue / bugs:
     
 
 
-# 2) predict-stock-movement-python
+# 2) predict-stock-movement-python (This demonstrate how different models predict the price movement and compare with Buy and hold)
+Note: Testing in progress.  The performance of models does not shows better than Buy and Hold on many stocks.  Could be some fault in the implementation.
 
 This python scipts to gather historical data and using different model to predict their price movement. We are using this page as reference.
 
