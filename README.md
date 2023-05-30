@@ -120,9 +120,14 @@ Execute the script below
 
 python predictStockMovement.py
 
+
 # 3) buy-sell-signal-TraderXO-indicator-MACD-python
 
 This python scipts to gather historical data and using Trader XO indicator and MACD to trigger buy / sell signal. We are using this youtube as reference.
+
+Buy signal - if both Trader XO (Green dot) and MACD historgram shows Buy signal (Positive histogram).  
+Sell signal - if both Trader XO (Red dot) and MACD historgram shows Sell signal (Negative histogram).
+Otherwise - do nothing.
 
 https://www.youtube.com/watch?v=UC4YdCQKaQk&list=PLTQl_quUZDZwATLnpyFLBWqErXUnr3CrT
 
