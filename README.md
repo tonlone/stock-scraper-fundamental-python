@@ -122,9 +122,11 @@ python predictStockMovement.py
 
 
 
-# 3) buy-sell-signal-TraderXO-indicator-MACD-python                                               # helper script for finding Buy / Sell signal
+# 3) buy-sell-signal-TraderXO-indicator-MACD-python                                               
 
-This python scipts to gather historical data and using Trader XO indicator and MACD to trigger buy / sell signal. We are using this youtube as reference.
+This python scipts to gather historical data and using Trader XO indicator and MACD to trigger buy / sell signal. We are using this youtube as reference. 
+
+# helper script for finding Buy / Sell signal
 
 Buy signal - if both Trader XO (Green dot) and MACD historgram shows Buy signal (Positive histogram).  
 
