@@ -17,7 +17,7 @@ nltk.download('stopwords')
 # Download the 'wordnet' resource
 nltk.download('wordnet')
 
-symbol_lists = ["GRRR", "PWM", "NVAX", "ALPP"]
+symbol_lists = ["GDTC", "BTTX", "EZFL", "WAVD", "DMS"]
 date = "2023-06-01"
 SERPAPI_API_KEY = "a0519f1fc863161114d77812690f9c07c0f9c2ad89370b70032d6b615c02ad4a"
 
