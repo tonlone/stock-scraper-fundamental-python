@@ -18,6 +18,7 @@ nltk.download('stopwords')
 nltk.download('wordnet')
 
 symbol_lists = ["GDTC", "BTTX", "EZFL", "WAVD", "DMS"]
+symbol_lists = ["GDTC", "ABOS", "CACO", "TCBP", "BTTX", "WAVD", "PLTNR", "NNVC"]
 date = "2023-06-01"
 SERPAPI_API_KEY = "a0519f1fc863161114d77812690f9c07c0f9c2ad89370b70032d6b615c02ad4a"
 
@@ -114,7 +115,7 @@ for symbol in symbol_lists:
         average_sentiment_score = cumulative_vader_sentiment_score / len(titles)
         trading_signal = generate_trading_signal(average_sentiment_score)
         print("Trading signal using VaderSentiment on " + printSymbol(symbol) + ":", trading_signal)
-        print("Average final score (-0.5 <= Negative, >= 0.5 - Positive):", average_sentiment_score)
+        print("Average final score (-0.5< Very Neg, -0.2<  Neg, -0.2> Neutral <=0.2, >0.2 Pos, >= 0.5 - Very Positive):", average_sentiment_score)
         print("===============================================================================================================================================\n")
     else:
         print("No news found for ", symbol )
